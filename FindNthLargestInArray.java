@@ -1,4 +1,4 @@
-package com.sujay;
+package com.sujay.practice;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -16,12 +16,13 @@ public class FindNthLargestInArray {
 		int[] givenArray = { 5, 6, 9, 2, 1 };
 		int arrayLength = givenArray.length;
 		while (arrayLength != 0) {
-			for (int currentIndex = 0; currentIndex < ((givenArray.length) - 1); currentIndex++) {
-				if (givenArray[currentIndex] > givenArray[currentIndex + 1]) {
+			for (int currentIndex = 0; currentIndex < (arrayLength - 1); currentIndex++) {
+				int nextIndex = currentIndex + 1;
+				if (givenArray[currentIndex] > givenArray[nextIndex]) {
 					// swap the values
 					int temp;
-					temp = givenArray[currentIndex + 1];
-					givenArray[currentIndex + 1] = givenArray[currentIndex];
+					temp = givenArray[nextIndex];
+					givenArray[nextIndex] = givenArray[currentIndex];
 					givenArray[currentIndex] = temp;
 				}
 			}
@@ -41,7 +42,7 @@ public class FindNthLargestInArray {
 
 	}
 
-	private static String printSortedArray(int[] array) {
+	private static void printSortedArray(int[] array) {
 		int index = 0;
 		int length = array.length;
 		System.out.println("Sorted Array in ascending order : ");
@@ -51,6 +52,5 @@ public class FindNthLargestInArray {
 			index++;
 		}
 		System.out.println();
-		return null;
 	}
 }
