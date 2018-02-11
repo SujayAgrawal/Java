@@ -27,7 +27,8 @@ public final class Statistics {
 	 * This method calculates median of given elements i.e middle element in a
 	 * given array
 	 * 
-	 * @return
+	 * @param array
+	 * @return median of given elements in array
 	 */
 	public double getMedian(int[] array) {
 		// find the middle element in an array
