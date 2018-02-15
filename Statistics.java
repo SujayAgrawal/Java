@@ -1,5 +1,8 @@
 package com.sujay.practice;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This class is responsible for calculating mean, mode & median of given
  * elements in array of integer type
@@ -20,15 +23,14 @@ public final class Statistics {
 		for (int i = 0; i < array.length; i++) {
 			sum = sum + array[i];
 		}
-		return sum / array.length;
+		return (double) Math.round((sum / array.length) * 10) / 10;
 	}
 
 	/**
 	 * This method calculates median of given elements i.e middle element in a
 	 * given array
 	 * 
-	 * @param array
-	 * @return median of given elements in array
+	 * @return
 	 */
 	public double getMedian(int[] array) {
 		// find the middle element in an array
@@ -52,7 +54,7 @@ public final class Statistics {
 		}
 	}
 
-	public double getMode(int[] array) {
+	public int getMode(int[] array) {
 		// get the array sorted in
 		// calculate number of occurrences of each element
 		// Map<element,numberOfOccurrences>
@@ -60,7 +62,26 @@ public final class Statistics {
 		// be mode
 		// but if there is a conflict in numberOfOccurrences then the smallest
 		// element will be declared as mode
-		return 0;
+		array = getSortedArray(array);
+		Map<Integer, Integer> map = new HashMap<>();
+		int numberOfOccurrences = 1;
+		for (int element : array) {
+			if (map.containsKey(element)) {
+				numberOfOccurrences++;
+			} else {
+				numberOfOccurrences = 1;
+			}
+			map.put(element, numberOfOccurrences);
+		}
+		int mode = 0;
+		int value = 0;
+		for (int ele : array) {
+			if (value < map.get(ele)) {
+				value = map.get(ele);
+				mode = ele;
+			}
+		}
+		return mode;
 	}
 
 	private boolean isLengthOfArrayEven(int length) {
