@@ -21,7 +21,7 @@ public class Staircase {
 		in.close();
 	}
 
-	static void staircase(int sizeOfStairs) {
+	private static void staircase(int sizeOfStairs) {
 		for(int i = 1; i <= sizeOfStairs; i++) {
 			for(int j = 1; j <= sizeOfStairs-i; j++) {
 				System.out.print(" ");
